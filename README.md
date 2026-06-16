@@ -1,6 +1,6 @@
-# AI Research Engineering `Skills` Library
+# AI Research `Skills` Library
 
-> **The most comprehensive open-source library of AI research engineering skills for AI agents**
+> **The most comprehensive open-source skills library enabling AI agents to autonomously conduct AI research — from idea to paper**
 
 <p align="center">
   <img src="docs/assets/promo.gif" alt="AI Research Skills Demo" width="700">
@@ -17,24 +17,25 @@
 
 <div align="center">
 
-### **85 Skills Powering AI Research in 2026**
+### **98 Skills Powering AI Research in 2026**
 
 </div>
 
 <details>
-<summary><b>View All 21 Categories</b></summary>
+<summary><b>View All 23 Categories</b></summary>
 
 <div align="center">
 
 | | | |
 |:---:|:---:|:---:|
+| **Autoresearch** (1) | **Ideation** (2) | **ML Paper Writing** (2) |
 | **Model Architecture** (5) | **Fine-Tuning** (4) | **Post-Training** (8) |
 | **Distributed Training** (6) | **Optimization** (6) | **Inference** (4) |
 | **Tokenization** (2) | **Data Processing** (2) | **Evaluation** (3) |
 | **Safety & Alignment** (4) | **Agents** (4) | **RAG** (5) |
 | **Multimodal** (7) | **Prompt Engineering** (4) | **MLOps** (3) |
 | **Observability** (2) | **Infrastructure** (3) | **Mech Interp** (4) |
-| **Emerging Techniques** (6) | **ML Paper Writing** (1) | **Ideation** (2) |
+| **Emerging Techniques** (6) | **Agent-Native Research Artifact** (3) | |
 
 </div>
 
@@ -52,13 +53,14 @@
 - [Roadmap](#roadmap)
 - [Repository Structure](#repository-structure)
 - [Use Cases](#use-cases)
-- [Contributing](#contributing)
+- [Contributors](#contributors)
+- [Citation](#citation)
 - [Community](#community)
 
 
 ## Our Mission
 
-We provide the layer of **Engineering Ability** that **enable your coding agent to write and conduct AI research experiments**, including preparing datasets, executing training pipelines, deploying models, and building your AI agents.
+We enable AI agents to **autonomously conduct AI research** — from literature survey and idea generation through experiment execution to paper writing. The library provides both the **research orchestration layer** (autoresearch, ideation, paper writing) and the **engineering skills** (training, evaluation, deployment) needed at each stage.
 <p align="center">
   <img src="docs/skills.png" alt="AI Research Agent System" width="50%">
   <br>
@@ -67,11 +69,12 @@ We provide the layer of **Engineering Ability** that **enable your coding agent 
 
 ## Path Towards AI Research Agent
 
-Modern AI research requires mastering dozens of specialized tools and frameworks. 
-AI Researchers spend more time debugging infrastructure than testing hypotheses—slowing the pace of scientific discovery. 
-We provide a comprehensive library of expert-level research engineering skills that enable AI agents to autonomously implement and execute different stages of AI research experiments—from data preparation and model training to evaluation and deployment.
-  - Specialized Expertise - Each skill provides deep, production-ready knowledge of a specific framework (Megatron-LM, vLLM, TRL, etc.)
-  - End-to-End Coverage - 85 skills spanning the full AI research lifecycle, from model architecture to deployment
+Modern AI research requires mastering dozens of specialized tools and frameworks.
+AI Researchers spend more time debugging infrastructure than testing hypotheses — slowing the pace of scientific discovery.
+We provide a comprehensive skills library that enables AI agents to autonomously conduct the full research lifecycle — from brainstorming ideas to writing the paper.
+  - Autonomous Research - The **autoresearch** skill orchestrates the entire research workflow using a two-loop architecture, routing to domain skills as needed
+  - Specialized Expertise - Each domain skill provides deep, production-ready knowledge of a specific framework (Megatron-LM, vLLM, TRL, etc.)
+  - End-to-End Coverage - 98 skills spanning the full AI research lifecycle, from ideation and literature survey to experiments and paper writing
   - Research-Grade Quality - Documentation sourced from official repos, real GitHub issues, and battle-tested production workflows
 
 ## Available AI Research Engineering Skills
@@ -80,18 +83,30 @@ We provide a comprehensive library of expert-level research engineering skills t
 
 ### 📦 Quick Install (Recommended)
 
-Install skills to **any coding agent** (Claude Code, OpenCode, Cursor, Codex, Gemini CLI, Qwen Code) with one command:
+**For humans** — interactive installer with one command:
 
 ```bash
 npx @orchestra-research/ai-research-skills
 ```
 
-This launches an interactive installer that:
-- **Auto-detects** your installed coding agents
-- **Installs** skills to `~/.orchestra/skills/` with symlinks to each agent
+**For AI agents** — point your agent to the welcome doc and it handles the rest:
+
+```
+Read https://www.orchestra-research.com/ai-research-skills/welcome.md and follow the instructions to install and use AI Research Skills.
+```
+
+This installs all 98 skills, loads the **autoresearch** orchestration layer, and starts autonomous research.
+
+<details>
+<summary><b>What the installer does</b></summary>
+
+- **Auto-detects** your installed coding agents (Claude Code, Hermes Agent, OpenCode, Cursor, Gemini CLI, etc.)
+- **Installs** skills to `~/.orchestra/skills/` with symlinks to each agent (falls back to copy on Windows)
 - **Offers** everything, quickstart bundle, by category, or individual skills
 - **Updates** installed skills with latest versions
 - **Uninstalls** all or selected skills
+
+</details>
 
 <details>
 <summary><b>CLI Commands</b></summary>
@@ -116,7 +131,7 @@ Install skill categories directly using the **Claude Code CLI**:
 # Add the marketplace
 /plugin marketplace add orchestra-research/AI-research-SKILLs
 
-# Install by category (21 categories available)
+# Install by category (23 categories available)
 /plugin install fine-tuning@ai-research-skills        # Axolotl, LLaMA-Factory, PEFT, Unsloth
 /plugin install post-training@ai-research-skills      # TRL, GRPO, OpenRLHF, SimPO, verl, slime, miles, torchforge
 /plugin install inference-serving@ai-research-skills  # vLLM, TensorRT-LLM, llama.cpp, SGLang
@@ -126,10 +141,13 @@ Install skill categories directly using the **Claude Code CLI**:
 
 </details>
 
-### All 21 Categories (85 Skills)
+### All 23 Categories (98 Skills)
 
 | Category | Skills | Included |
 |----------|--------|----------|
+| **Autoresearch** | **1** | **Autonomous research orchestration — central layer that manages the full lifecycle and routes to all other skills** |
+| Ideation | 2 | Research Brainstorming, Creative Thinking |
+| ML Paper Writing | 2 | ML Paper Writing (LaTeX templates, citation verification), Academic Plotting |
 | Model Architecture | 5 | LitGPT, Mamba, NanoGPT, RWKV, TorchTitan |
 | Tokenization | 2 | HuggingFace Tokenizers, SentencePiece |
 | Fine-Tuning | 4 | Axolotl, LLaMA-Factory, PEFT, Unsloth |
@@ -149,11 +167,13 @@ Install skill categories directly using the **Claude Code CLI**:
 | Observability | 2 | LangSmith, Phoenix |
 | Multimodal | 7 | CLIP, Whisper, LLaVA, BLIP-2, SAM, Stable Diffusion, AudioCraft |
 | Emerging | 6 | MoE, Model Merging, Long Context, Speculative Decoding, Distillation, Pruning |
-| ML Paper Writing | 1 | ML Paper Writing (LaTeX templates, citation verification) |
-| Ideation | 2 | Research Brainstorming, Creative Thinking |
+| Agent-Native Research Artifact | 3 | ARA Compiler, Research Manager, Rigor Reviewer |
 
 <details>
-<summary><b>View All 85 Skills in Details</b></summary>
+<summary><b>View All 98 Skills in Details</b></summary>
+
+### 🔬 Autoresearch (1 skill) — Central Orchestration Layer
+- **[Autoresearch](0-autoresearch-skill/)** - Autonomous research orchestration using a two-loop architecture (inner optimization + outer synthesis). Manages the full lifecycle from literature survey to paper writing, routing to all domain-specific skills. Supports Claude Code /loop and OpenClaw heartbeat for continuous operation (390 lines + 3 refs)
 
 ### 🏗️ Model Architecture (5 skills)
 - **[LitGPT](01-model-architecture/litgpt/)** - Lightning AI's 20+ clean LLM implementations with production training recipes (462 lines + 4 refs)
@@ -276,19 +296,25 @@ Install skill categories directly using the **Claude Code CLI**:
 - **[Knowledge Distillation](19-emerging-techniques/knowledge-distillation/)** - Compress models 70B→7B with MiniLLM, temperature scaling (424 lines)
 - **[Model Pruning](19-emerging-techniques/model-pruning/)** - 50% sparsity with Wanda, SparseGPT, <1% accuracy loss (417 lines)
 
-### 📝 ML Paper Writing (1 skill)
+### 📝 ML Paper Writing (2 skills)
 - **[ML Paper Writing](20-ml-paper-writing/)** - Write publication-ready papers for NeurIPS, ICML, ICLR, ACL, AAAI, COLM with LaTeX templates, citation verification, and writing best practices (532 lines + 5 refs)
+- **[Academic Plotting](20-ml-paper-writing/academic-plotting/)** - Generate publication-quality figures for ML papers: architecture diagrams via Gemini AI and data-driven charts via matplotlib/seaborn with venue-specific styling (479 lines + 3 refs)
 
 ### 💡 Ideation (2 skills)
 - **[Research Brainstorming](21-research-ideation/brainstorming-research-ideas/)** - Structured ideation frameworks for discovering high-impact research directions with 10 complementary lenses (384 lines)
 - **[Creative Thinking](21-research-ideation/creative-thinking-for-research/)** - Cognitive science frameworks (bisociation, structure-mapping, constraint manipulation) for genuinely novel research ideas (366 lines)
+
+### 🧬 Agent-Native Research Artifact (3 skills)
+- **[ARA Compiler](22-agent-native-research-artifact/compiler/)** - Compiles any research input (PDF papers, repos, experiment logs, raw notes) into a complete Agent-Native Research Artifact with claims, exploration graph, evidence, and code stubs (245 lines + 3 refs)
+- **[ARA Research Manager](22-agent-native-research-artifact/research-manager/)** - Post-task research recorder that runs at session end to extract decisions, experiments, dead ends, and pivots from conversation history into the `ara/` directory with user-vs-AI provenance tags (324 lines + 3 refs)
+- **[ARA Rigor Reviewer](22-agent-native-research-artifact/rigor-reviewer/)** - ARA Seal Level 2 semantic epistemic review scoring six dimensions of research rigor (evidence relevance, falsifiability, scope, coherence, exploration integrity, methodology) with severity-ranked findings (322 lines + 1 ref)
 
 
 </details>
 
 ## Demos
 
-All 85 skills in this repo are automatically synced to [Orchestra Research](https://www.orchestra-research.com/research-skills), where you can add them to your projects with one click and use them with AI research agents.
+All 98 skills in this repo are automatically synced to [Orchestra Research](https://www.orchestra-research.com/research-skills), where you can add them to your projects with one click and use them with AI research agents.
 
 **See skills in action → [demos/](demos/README.md)**
 
@@ -296,13 +322,15 @@ We maintain a curated collection of demo repositories showing how to use skills 
 
 | Demo | Skills Used | What It Does |
 |------|-------------|--------------|
+| **[Norm Heterogeneity → LoRA Brittleness](demos/autoresearch-norm-heterogeneity/)** | Autoresearch, ML Paper Writing, Ideation | Agent autonomously discovered norm heterogeneity predicts fine-tuning difficulty (r=-0.99), pivoting from a null result on ETF overlaps |
+| **[RL Algorithm Brain Scan](demos/autoresearch-rl-brain-scan/)** | Autoresearch, GRPO, TRL, SAELens, TransformerLens, ML Paper Writing | Agent found DPO is a rank-1 perturbation (95.6% recovery from one SVD direction) while online RL is distributed and structure-preserving |
 | **[NeMo Eval: GPQA Benchmark](https://github.com/zechenzhangAGI/Nemo-Eval-Skill-Demo)** | NeMo Evaluator | Compare Llama 8B/70B/405B on graduate-level science questions |
 | **[LoRA Without Regret Reproduction](https://www.orchestra-research.com/perspectives/LLM-with-Orchestra)** | GRPO, TRL | Reproduce SFT + GRPO RL experiments via prompting |
-| **ML Paper Writing** *(coming soon)* | ML Paper Writing | Transform research repo → publication-ready paper |
 | **[Layer-Wise Quantization Experiment](https://github.com/AmberLJC/llama-quantization-experiment)** | llama.cpp, GGUF | Investigate optimal layer precision allocation—early layers at Q8 achieve 1.9× compression with 1.3% perplexity loss |
 | **[Cross-Lingual Alignment Analysis](https://github.com/AmberLJC/faiss-demo)** | FAISS | Quantify how well multilingual embeddings align semantic concepts across 8 languages using FAISS similarity search |
+| **[Scientific Plotting Demo](demos/scientific-plotting-demo/)** | Academic Plotting | Generate publication-quality figures for the Andes QoE-aware LLM serving paper — Gemini AI architecture diagrams + matplotlib data charts (CDF, multi-panel grids, bar charts) |
 
-**Featured Demo**: Reproduce Thinking Machines Lab's "LoRA Without Regret" paper **by simply prompting an AI agent**. The agent autonomously writes training code for both SFT and GRPO reinforcement learning, provisions H100 GPUs, runs LoRA rank ablation experiments overnight, and generates publication-ready analysis. No manual coding required—just describe what you want to reproduce. ([Blog](https://www.orchestra-research.com/perspectives/LLM-with-Orchestra) | [Video](https://www.youtube.com/watch?v=X0DoLYfXl5I))
+**Featured Demos**: Two papers produced entirely by AI agents using the **autoresearch** skill. The [Norm Heterogeneity paper](demos/autoresearch-norm-heterogeneity/) demonstrates autonomous research pivoting — the agent refuted its own hypothesis and discovered a stronger finding. The [RL Brain Scan paper](demos/autoresearch-rl-brain-scan/) demonstrates multi-skill orchestration — the agent trained RL models, analyzed internals with interpretability tools, and synthesized the insight that "DPO is rank-1 alignment." Both papers written end-to-end by the agent.
 
 ## Skill Structure
 
@@ -341,7 +369,7 @@ skill-name/
 
 ## Roadmap
 
-We're building towards 80 comprehensive skills across the full AI research lifecycle. See our [detailed roadmap](docs/ROADMAP.md) for the complete development plan.
+The library spans 98 comprehensive skills across the full AI research lifecycle. See our [detailed roadmap](docs/ROADMAP.md) for the complete development plan.
 
 [View Full Roadmap →](docs/ROADMAP.md)
 
@@ -350,12 +378,12 @@ We're building towards 80 comprehensive skills across the full AI research lifec
 
 | Metric | Current | Target |
 |--------|---------|--------|
-| **Skills** | **85** (high-quality, standardized YAML) | 80 ✅ |
+| **Skills** | **87** (high-quality, standardized YAML) | 80 ✅ |
 | **Avg Lines/Skill** | **420 lines** (focused + progressive disclosure) | 200-600 lines |
 | **Documentation** | **~130,000 lines** total (SKILL.md + references) | 100,000+ lines |
 | **Gold Standard Skills** | **65** with comprehensive references | 50+ |
 | **Contributors** | 1 | 100+ |
-| **Coverage** | Architecture, Tokenization, Fine-Tuning, Mechanistic Interpretability, Data Processing, Post-Training, Safety, Distributed, Optimization, Evaluation, Infrastructure, Inference, Agents, RAG, Multimodal, Prompt Engineering, MLOps, Observability, ML Paper Writing, Ideation | Full Lifecycle ✅ |
+| **Coverage** | Architecture, Tokenization, Fine-Tuning, Mechanistic Interpretability, Data Processing, Post-Training, Safety, Distributed, Optimization, Evaluation, Infrastructure, Inference, Agents, RAG, Multimodal, Prompt Engineering, MLOps, Observability, ML Paper Writing, Ideation, Autoresearch | Full Lifecycle ✅ |
 
 **Recent Progress**: npm package `@orchestra-research/ai-research-skills` for one-command installation across all coding agents
 
@@ -372,7 +400,8 @@ claude-ai-research-skills/
 ├── README.md                    ← You are here
 ├── CONTRIBUTING.md              ← Contribution guide
 ├── demos/                       ← Curated demo gallery (links to demo repos)
-├── docs/ 
+├── docs/
+├── 0-autoresearch-skill/        (1 skill ✓ - Autonomous research orchestration)
 ├── 01-model-architecture/       (5 skills ✓ - LitGPT, Mamba, RWKV, NanoGPT, TorchTitan)
 ├── 02-tokenization/             (2 skills ✓ - HuggingFace Tokenizers, SentencePiece)
 ├── 03-fine-tuning/              (4 skills ✓ - Axolotl, LLaMA-Factory, Unsloth, PEFT)
@@ -392,8 +421,9 @@ claude-ai-research-skills/
 ├── 17-observability/            (2 skills ✓ - LangSmith, Phoenix)
 ├── 18-multimodal/               (7 skills ✓ - CLIP, Whisper, LLaVA, Stable Diffusion, SAM, BLIP-2, AudioCraft)
 ├── 19-emerging-techniques/      (6 skills ✓ - MoE, Model Merging, Long Context, Speculative Decoding, Distillation, Pruning)
-├── 20-ml-paper-writing/         (1 skill ✓ - ML Paper Writing with LaTeX templates)
-├── 21-research-ideation/                 (2 skills ✓ - Research Brainstorming, Creative Thinking)
+├── 20-ml-paper-writing/         (2 skills ✓ - ML Paper Writing with LaTeX templates, Academic Plotting)
+├── 21-research-ideation/           (2 skills ✓ - Research Brainstorming, Creative Thinking)
+├── 22-agent-native-research-artifact/ (3 skills ✓ - ARA Compiler, Research Manager, Rigor Reviewer)
 └── packages/ai-research-skills/ (npm package for one-command installation)
 ```
 
@@ -421,6 +451,32 @@ MIT License - See [LICENSE](LICENSE) for details.
 
 **Note**: Individual skills may reference libraries with different licenses. Please check each project's license before use.
 
+## Citation
+
+If you use AI Research Skills in your work or find it helpful for a publication, we'd appreciate a citation:
+
+**BibTeX**
+```bibtex
+@software{ai_research_skills,
+  title     = {AI Research Skills Library},
+  author    = {{Orchestra Research}},
+  year      = {2025},
+  url       = {https://github.com/orchestra-research/AI-research-SKILLs},
+  note      = {Open-source skills library enabling AI agents to autonomously conduct AI research}
+}
+```
+
+**APA**
+> Orchestra Research. (2025). *AI Research Skills Library* [Computer software]. https://github.com/orchestra-research/AI-research-SKILLs
+
+**Chicago**
+> Orchestra Research. "AI Research Skills Library." GitHub, 2025. https://github.com/orchestra-research/AI-research-SKILLs.
+
+**IEEE**
+> Orchestra Research, "AI Research Skills Library," 2025. [Online]. Available: https://github.com/orchestra-research/AI-research-SKILLs
+
+> **Tip**: You can also click **"Cite this repository"** in the GitHub sidebar for auto-formatted citations.
+
 ## Acknowledgments
 
 Built with:
@@ -431,9 +487,14 @@ Built with:
 Special thanks to:
 - EleutherAI, HuggingFace, NVIDIA, Lightning AI, Meta AI, Anthropic
 - All researchers who maintain excellent documentation
+ 
+## Contributors
 
+Thanks to all the people who have contributed to the AI Research Skills Library:
 
-## Contributing
+<a href="https://github.com/orchestra-research/AI-research-SKILLs/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=orchestra-research/AI-research-SKILLs" />
+</a> 
 
 We welcome contributions from the AI research community! See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines on:
 
@@ -442,12 +503,52 @@ We welcome contributions from the AI research community! See [CONTRIBUTING.md](C
 - Quality standards and best practices
 - Submission process
 
-All contributors are featured in our [Contributors Hall of Fame](CONTRIBUTORS.md) 🌟
- 
-
 ## Recent Updates
 
 <details open>
+<summary><b>June 2026 - v1.7.1 🧹 Inventory Consistency, Drift Guard & Security Hardening</b></summary>
+
+- 📊 **Repo-wide inventory reconciled to 98 skills / 23 categories** — corrected stale counts that had drifted apart across files: CLAUDE.md (said 90), CONTRIBUTING.md (said 86/22), the README sync line (said 87), WELCOME.md and the npm package README (said 86/22). Also fixed wrong per-category listings (TorchTitan, SwanLab, A-Evolve, ML Training Recipes, Cosmos Policy/OpenPI/OpenVLA-OFT, the paper-writing skills)
+- 🛡️ **New CI drift guard** — `scripts/check-inventory.sh` + `check-inventory.yml` fail CI whenever the documented skill/category counts diverge from the actual `SKILL.md` count on disk, so the inventory can't silently drift again
+- 📦 **Marketplace sync hardening** — `sync-skills.yml` now prunes build artifacts (`node_modules`/`__pycache__`/`*.pyc`/`.ipynb_checkpoints`) before zipping and fails loudly above 190 files instead of hitting the marketplace's 200-file rejection
+- 🔒 **Security** — pinned CLI dependencies (`chalk`/`inquirer`/`ora`) to exact, patched versions with a regenerated lockfile (`inquirer@9.3.8` clears the `tmp` path-traversal advisory; `npm audit` now reports 0 vulnerabilities)
+- 🧹 Full open PR/issue triage pass against scope + contribution standards
+
+</details>
+
+<details>
+<summary><b>April 2026 - v1.6.0 🧬 Agent-Native Research Artifact (ARA) — 23rd Category, 98 Skills</b></summary>
+
+- 🧬 **NEW CATEGORY**: `22-agent-native-research-artifact/` (the 23rd category) — three skills that turn research outputs into a falsifiable, agent-traversable artifact:
+  - 🛠️ **[ARA Compiler](22-agent-native-research-artifact/compiler/)** — compiles any input (PDF papers, GitHub repos, experiment logs, raw notes) into a structured ARA with cognitive layer (claims, concepts, heuristics), physical layer (configs, code stubs), exploration graph (research DAG), and grounded evidence
+  - 📋 **[ARA Research Manager](22-agent-native-research-artifact/research-manager/)** — post-task epilogue that scans conversation history at session end and writes decisions, experiments, dead ends, claims, heuristics, and pivots into the `ara/` directory with `user` / `ai-suggested` / `ai-executed` / `user-revised` provenance tags
+  - 🔍 **[ARA Rigor Reviewer](22-agent-native-research-artifact/rigor-reviewer/)** — Seal Level 2 semantic epistemic review scoring six dimensions of research rigor (evidence relevance, falsifiability, scope calibration, argument coherence, exploration integrity, methodological rigor) and emitting a severity-ranked report with a Strong Accept-to-Reject recommendation
+- 🔗 Sourced from the [Agent-Native-Research-Artifact-Init](https://github.com/Orchestra-Research/Agent-Native-Research-Artifact-Init) reference repo, restructured to AI-research-SKILLs standards (kebab-case names, third-person descriptions, Title-Case tags, one-level-deep references)
+- 🧩 Plugin entry `agent-native-research-artifact` added to `.claude-plugin/marketplace.json`; CLI category registered as `22-agent-native-research-artifact` with three individual skill entries in the npm installer
+- 🔄 Auto-syncs to Orchestra marketplace via `sync-skills.yml` on push; npm package republished as `@orchestra-research/ai-research-skills@1.6.0` via `publish-npm.yml` on version bump
+- 📊 **98 total skills** across **23 categories** — full lifecycle from idea → paper → falsifiable, auditable artifact
+
+</details>
+
+<details>
+<summary><b>March 2026 - v1.4.0 🔬 Autoresearch & 86 Skills — Full Research Lifecycle</b></summary>
+
+- 🔬 **NEW SKILL**: **Autoresearch** — autonomous research orchestration using a two-loop architecture (inner optimization loop + outer synthesis loop)
+- 🧠 Manages the full research lifecycle: literature survey → ideation → experiments → synthesis → paper writing
+- 🔄 Routes to all 86 domain skills automatically — agents don't need to know which skill to use
+- ⏰ Mandatory `/loop` (Claude Code) and cron job (OpenClaw) for continuous autonomous operation
+- 📊 Generates research presentations (HTML/PDF) with optimization trajectory plots for human review
+- 📝 Findings.md as persistent project memory across sessions with "Lessons and Constraints" tracking
+- 🗂️ Structured workspace: research-state.yaml, findings.md, research-log.md, literature/, experiments/, src/, data/, to_human/
+- 📄 **Two demo papers produced by autoresearch**: [Norm Heterogeneity → LoRA Brittleness](demos/autoresearch-norm-heterogeneity/) and [RL Algorithm Brain Scan](demos/autoresearch-rl-brain-scan/)
+- 🚀 WELCOME.md for cold-start agent bootstrap — one URL to go from zero to autonomous research
+- 📦 npm v1.4.x with Windows symlink fallback, all 22 categories installable
+- 🤖 **Supported agents**: Claude Code, Hermes Agent, OpenCode, OpenClaw, Cursor, Codex, Gemini CLI, Qwen Code
+- 📊 **87 total skills** across **22 categories** — complete research lifecycle coverage
+
+</details>
+
+<details>
 <summary><b>February 2026 - v0.15.0 🛡️ Prompt Guard & 83 Skills</b></summary>
 
 - 🛡️ **NEW SKILL**: Prompt Guard - Meta's 86M prompt injection & jailbreak detector

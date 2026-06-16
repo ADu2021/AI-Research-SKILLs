@@ -1,6 +1,6 @@
 # @orchestra-research/ai-research-skills
 
-Install AI research engineering skills to your coding agents (Claude Code, OpenCode, Cursor, Gemini CLI, and more).
+Install AI research engineering skills to your coding agents (Claude Code, Hermes Agent, OpenCode, Cursor, Gemini CLI, and more).
 
 ```bash
 npx @orchestra-research/ai-research-skills
@@ -8,11 +8,11 @@ npx @orchestra-research/ai-research-skills
 
 ## Features
 
-- **83 skills** across 20 categories for AI research engineering
+- **98 skills** across 23 categories for AI research engineering
 - **Auto-detects** installed coding agents
 - **Interactive installer** with guided experience
 - **Global or local install** — install globally with symlinks, or per-project with `--local` for version-controlled, project-specific skill sets
-- **Works with 8 agents**: Claude Code, OpenCode, OpenClaw, Cursor, Codex, Gemini CLI, Qwen Code, and shared `.agents/`
+- **Works with 9 agents**: Claude Code, Hermes Agent, OpenCode, OpenClaw, Cursor, Codex, Gemini CLI, Qwen Code, and shared `.agents/`
 
 ## Quick Start
 
@@ -91,13 +91,14 @@ Benefits:
 
 | Category | Skills | Description |
 |----------|--------|-------------|
+| **Autoresearch** | **1** | **Central orchestration — manages full research lifecycle, routes to all other skills** |
 | Model Architecture | 6 | LitGPT, Mamba, TorchTitan, Megatron... |
 | Post-Training | 8 | GRPO, verl, slime, miles, torchforge... |
 | Fine-Tuning | 5 | Axolotl, Unsloth, PEFT, Torchtune... |
 | Distributed Training | 6 | DeepSpeed, FSDP, Megatron... |
 | Inference Serving | 4 | vLLM, TensorRT-LLM, SGLang... |
 | Optimization | 6 | Flash Attention, GPTQ, AWQ... |
-| And 14 more... | | |
+| And 15 more... | | Ideation, Paper Writing, RAG, Agents, Multimodal... |
 
 ## How It Works
 
@@ -148,6 +149,7 @@ my-project/
 | Gemini CLI | `~/.gemini` |
 | Qwen Code | `~/.qwen` |
 | Shared Agents | `~/.agents` |
+| Hermes Agent | `~/.hermes` |
 
 ## License
 

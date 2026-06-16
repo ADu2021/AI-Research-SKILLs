@@ -156,7 +156,13 @@ function createSymlinks(agent, skills, spinner) {
       symlinkSync(sourcePath, linkPath);
       linkedCount++;
     } catch (error) {
-      // Ignore symlink errors (e.g., already exists)
+      // Symlink failed (e.g., Windows without Developer Mode) — fall back to copy
+      try {
+        cpSync(sourcePath, linkPath, { recursive: true });
+        linkedCount++;
+      } catch (copyError) {
+        // Skip if both fail
+      }
     }
   }
 
@@ -401,6 +407,7 @@ export function getAllCategoryIds() {
     '19-emerging-techniques',
     '20-ml-paper-writing',
     '21-research-ideation',
+    '0-autoresearch-skill',
   ];
 }
 

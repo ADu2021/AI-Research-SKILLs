@@ -105,20 +105,84 @@ Quantifies how well multilingual embeddings align semantic concepts across 8 lan
 
 ---
 
+### 5. Autoresearch: Embedding Norm Heterogeneity Drives LoRA Brittleness
+
+**Paper:** [autoresearch-norm-heterogeneity/](autoresearch-norm-heterogeneity/)
+
+**Skills Used:** [Autoresearch](../0-autoresearch-skill/), [ML Paper Writing](../20-ml-paper-writing/), [Research Ideation](../21-research-ideation/)
+
+**What It Does:**
+An AI agent ran the full autoresearch workflow autonomously. Starting from a hypothesis about ETF crystallization, the agent discovered a null result — ETF overlaps do NOT predict fine-tuning difficulty — then **pivoted** to identify embedding norm heterogeneity as the actual causal predictor (r=-0.99 at 1.4B scale). The agent wrote the paper end-to-end.
+
+**Why It's Impressive:**
+The research pivot was autonomous. The agent refuted its own starting hypothesis, identified a better predictor, validated it causally (equalizing norms improves fine-tunability by 79%), and wrote a paper with a stronger finding than the original plan.
+
+---
+
+### 6. Autoresearch: The RL Algorithm Brain Scan
+
+**Paper:** [autoresearch-rl-brain-scan/](autoresearch-rl-brain-scan/)
+
+**Skills Used:** [Autoresearch](../0-autoresearch-skill/), [GRPO RL Training](../06-post-training/grpo-rl-training/), [TRL](../06-post-training/trl-fine-tuning/), [SAELens](../04-mechanistic-interpretability/saelens/), [TransformerLens](../04-mechanistic-interpretability/transformer-lens/), [ML Paper Writing](../20-ml-paper-writing/)
+
+**What It Does:**
+An AI agent systematically compared what RLOO, GRPO, and DPO do to model internals using SVD analysis of weight deltas and SAE feature overlap. Key discovery: DPO is a rank-1 perturbation (one SVD direction recovers 95.6% of its behavioral effect), while online RL methods produce distributed, structure-preserving changes.
+
+**Why It's Impressive:**
+The agent orchestrated multiple domain skills (RL training, mechanistic interpretability, paper writing) across the full research lifecycle. The insight that "DPO is rank-1 alignment" is a conceptual contribution that emerged from the outer synthesis loop — not just metric optimization.
+
+---
+
+### 7. Scientific Plotting: Publication-Quality Figures
+
+**Demo:** [scientific-plotting-demo/](scientific-plotting-demo/)
+
+**Skills Used:** [Academic Plotting](../20-ml-paper-writing/academic-plotting/)
+
+**What It Does:**
+Generates all key figures for the [Andes QoE-aware LLM serving paper](https://arxiv.org/abs/2404.16283) using both workflows from the academic-plotting skill:
+- **Workflow 1 (Gemini AI):** System architecture diagram using `gemini-3-pro-image-preview` with 6-section prompt structure, Style B "Modern Minimal", and Nord palette — 3 non-deterministic attempts with best-of-3 selection
+- **Workflow 2 (matplotlib):** Five data-driven figures — QoE definition illustration, 3-panel CDF comparison, 4x3 multi-panel burst intensity grid, summary bar charts — all with publication rcParams, colorblind-safe palette, and PDF+PNG export
+
+**Key Results:**
+| Metric | Result |
+|--------|--------|
+| QoE improvement over vLLM | **4.7x** |
+| GPU resource savings | **61%** |
+| Gemini text accuracy | **100%** (all labels spelled correctly) |
+| Figures generated | **6** (1 AI diagram + 5 data charts) |
+
+**What You'll Learn:**
+- Crafting 6-section Gemini prompts for architecture diagrams
+- Multi-attempt generation with evaluation rubric
+- Publication-quality matplotlib figures with venue-specific styling
+- Colorblind-safe palettes, multi-panel layouts, and dual PDF/PNG export
+
+**Repository Contents:**
+```
+scientific-plotting-demo/
+├── README.md                                # Full demo documentation with all figures
+└── figures/
+    ├── gen_fig_andes_architecture_gemini.py  # Gemini AI diagram script
+    ├── gen_fig_andes_workflow.py             # matplotlib architecture alternative
+    ├── gen_fig_experiment_results.py         # Data charts (CDF, grid, bars, QoE)
+    ├── fig_andes_architecture*.png           # Gemini outputs (best + 3 attempts)
+    ├── fig_cdf_comparison.{pdf,png}          # 3-panel CDF
+    ├── fig_burst_intensity.{pdf,png}         # 4x3 multi-panel grid
+    ├── fig_qoe_definition.{pdf,png}          # QoE metric illustration
+    └── fig_summary_improvements.{pdf,png}    # Summary bar charts
+```
+
+---
+
 ## Coming Soon
 
-### 5. ML Paper Writing: From Repo to Publication
+### ML Paper Writing: From Repo to Publication
 
 **Skills Used:** [ML Paper Writing](../20-ml-paper-writing/)
 
 **What It Will Do:**
 Transform a research repository with experimental results into a publication-ready paper for top ML conferences (NeurIPS, ICML, ICLR).
-
-**Planned Contents:**
-- Source research repo with code and results
-- Generated paper draft (LaTeX)
-- Citation verification workflow
-- Before/after comparison
 
 *Status: In development*
 
@@ -166,5 +230,5 @@ Want to showcase a skill? We welcome demo contributions!
 ## Quick Links
 
 - [Main Skills Library](../README.md)
-- [All 83 Skills](../README.md#available-ai-research-engineering-skills)
+- [All 98 Skills](../README.md#available-ai-research-engineering-skills)
 - [Contributing Guide](../CONTRIBUTING.md)

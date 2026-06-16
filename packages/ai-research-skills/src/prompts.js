@@ -5,6 +5,7 @@ import chalk from 'chalk';
  * Skill categories with their skill counts and example skills
  */
 export const CATEGORIES = [
+  { id: '0-autoresearch-skill', name: 'Autoresearch', skills: 1, examples: 'Autonomous research orchestration' },
   { id: '01-model-architecture', name: 'Model Architecture', skills: 6, examples: 'LitGPT, Mamba, TorchTitan, Megatron' },
   { id: '02-tokenization', name: 'Tokenization', skills: 2, examples: 'HuggingFace Tokenizers, SentencePiece' },
   { id: '03-fine-tuning', name: 'Fine-Tuning', skills: 5, examples: 'Axolotl, Unsloth, Torchtune, PEFT' },
@@ -25,6 +26,8 @@ export const CATEGORIES = [
   { id: '18-multimodal', name: 'Multimodal', skills: 7, examples: 'CLIP, Whisper, LLaVA, Qwen2-VL' },
   { id: '19-emerging-techniques', name: 'Emerging Techniques', skills: 6, examples: 'MoE, Model Merging, Speculative Decoding' },
   { id: '20-ml-paper-writing', name: 'ML Paper Writing', skills: 1, examples: 'NeurIPS/ICML paper writing' },
+  { id: '21-research-ideation', name: 'Research Ideation', skills: 2, examples: 'Brainstorming, Creative Thinking' },
+  { id: '22-agent-native-research-artifact', name: 'Agent-Native Research Artifact', skills: 3, examples: 'ARA Compiler, Research Manager, Rigor Reviewer' },
 ];
 
 /**
@@ -62,6 +65,15 @@ export const INDIVIDUAL_SKILLS = [
   { id: '15-rag/chroma', name: 'Chroma', category: 'RAG' },
   // Paper Writing
   { id: '20-ml-paper-writing', name: 'ML Paper Writing', category: 'Writing' },
+  // Ideation
+  { id: '21-research-ideation/brainstorming-research-ideas', name: 'Research Brainstorming', category: 'Ideation' },
+  { id: '21-research-ideation/creative-thinking-for-research', name: 'Creative Thinking', category: 'Ideation' },
+  // Autoresearch
+  { id: '0-autoresearch-skill', name: 'Autoresearch', category: 'Research' },
+  // Agent-Native Research Artifact
+  { id: '22-agent-native-research-artifact/compiler', name: 'ARA Compiler', category: 'ARA' },
+  { id: '22-agent-native-research-artifact/research-manager', name: 'ARA Research Manager', category: 'ARA' },
+  { id: '22-agent-native-research-artifact/rigor-reviewer', name: 'ARA Rigor Reviewer', category: 'ARA' },
 ];
 
 /**
@@ -82,6 +94,7 @@ export const QUICK_START_SKILLS = [
   '16-prompt-engineering/dspy',
   '15-rag/chroma',
   '20-ml-paper-writing',
+  '0-autoresearch-skill',
 ];
 
 /**
@@ -208,7 +221,7 @@ export async function askLocalConfirmation(skillCount, agents, projectDir, categ
 
   // Description based on install type
   if (installType === 'everything') {
-    console.log(chalk.dim('    All 20 categories'));
+    console.log(chalk.dim('    All 22 categories'));
   } else if (installType === 'quickstart') {
     console.log(chalk.dim('    Essential skills for AI research'));
   } else if (categories && categories.length > 0) {
@@ -494,7 +507,7 @@ export async function askConfirmation(skillCount, agents, selectedCategories, se
 
   // Description based on install type
   if (installType === 'everything') {
-    console.log(chalk.dim('    All 20 categories including:'));
+    console.log(chalk.dim('    All 22 categories including:'));
     console.log(chalk.dim('    Post-Training, Fine-Tuning, Inference, Distributed Training,'));
     console.log(chalk.dim('    Optimization, Evaluation, MLOps, RAG, Agents, Paper Writing...'));
   } else if (installType === 'quickstart') {
